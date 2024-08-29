@@ -13,9 +13,10 @@ function addProduct(){
   printDataInTable(Data);
   addToLocalStorage(Data);
   //if (addToLocalStorage(Data)==true) {
-    Data = [];
-  }else {alert("Error while adding Product.");
-}}
+    //Data = [];
+  //}else {alert("Error while adding Product.");
+//}
+}
 
 
 var Data = [];
