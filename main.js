@@ -8,11 +8,11 @@ var productPrice = document.getElementById('productPrice');
 
 
 
-var inputsData = [];
+var Data = [];
 // debugger;
 function setData(){
 
-    var inputObject = {
+    var Object = {
        id: ID.value,
        productName : productName.value ,
        productPrice : productPrice.value,
@@ -22,18 +22,18 @@ function setData(){
        
     };
     
-    inputsData.push(inputObject);
+    Data.push(Object);
     
  
- var jsonString = JSON.stringify(inputsData);
+ var jsonString = JSON.stringify(Data);
 
 console.log(jsonString); 
-printDataInTable(inputsData);
+printDataInTable(Data);
 
 
 id = 0;
-for (var i = 0; i < inputsData.length; i++) {
-  localStorage.setItem(id, inputsData);
+for (var i = 0; i < Data.length; i++) {
+  localStorage.setItem(id, Data);
 
 instorage= localStorage.getItem(id);  
 console.log(instorage);
