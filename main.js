@@ -11,7 +11,7 @@ function addProduct(){
   
   setData(Data);
   printDataInTable(Data);
-  addToLocalStorage(Data);
+  addToLocalStorage(jsonString);
   //if (addToLocalStorage(Data)==true) {
     //Data = [];
   //}else {alert("Error while adding Product.");
@@ -39,6 +39,7 @@ function setData(){
  var jsonString = JSON.stringify(Data);
 
 console.log(jsonString); 
+  return jsonString;
 
 
 }
