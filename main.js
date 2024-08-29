@@ -7,6 +7,16 @@ var quantity = document.getElementById('productQuantity');
 var productPrice = document.getElementById('productPrice');
 
 
+function addProduct(){
+  
+  setData(Data);
+  printDataInTable(Data);
+  addToLocalStorage(Data);
+  if (addToLocalStorage(Data)==true) {
+    Data = [];
+  }else {alert("Error while adding Product.");
+}}
+
 
 var Data = [];
 // debugger;
@@ -28,27 +38,15 @@ function setData(){
  var jsonString = JSON.stringify(Data);
 
 console.log(jsonString); 
-printDataInTable(Data);
 
-
-id = 0;
-for (var i = 0; i < Data.length; i++) {
-  localStorage.setItem(id, Data);
-
-instorage= localStorage.getItem(id);  
-console.log(instorage);
-
-id++
 
 }
 
-}
-
-function deleteItem(){
+function deleteItem(id){
   var delBtn = document.getElementById('delBtn');
 
 delBtn.addEventListener('click' , function (){
-  localStorage.removeItem(10);
+  localStorage.removeItem(id);
 })
 
 }
@@ -56,11 +54,25 @@ delBtn.addEventListener('click' , function (){
 
 
 addBtn.addEventListener('click' , function(){
-    setData();
+    addProduct();
 })
 
 
 
+function addToLocalStorage(Data){
+
+id = 0;
+for (var i = 0; i < Data.length; i++) {
+  localStorage.setItem(id, Data);
+
+instorage= JSON.parse(localStorage.getItem(id));  
+
+
+console.log(instorage);
+
+id++
+
+}}
 
 
 
@@ -86,5 +98,4 @@ function printDataInTable(data) {
        
     }
     document.getElementById('table').innerHTML=row;
-
 }
