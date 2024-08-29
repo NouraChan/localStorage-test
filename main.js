@@ -1,6 +1,6 @@
 var addBtn = document.getElementById('addBtn');
 var productName = document.getElementById('productName');
-var ID = document.getElementById('productId');
+var productId = document.getElementById('productId');
 var productDesc = document.getElementById('productDesc');
 var  productRate = document.getElementById('productRate');
 var quantity = document.getElementById('productQuantity');
@@ -13,7 +13,7 @@ var Data = [];
 function setData(){
 
     var Object = {
-       id: ID.value,
+       id: productId.value,
        productName : productName.value ,
        productPrice : productPrice.value,
        productDesc : productDesc.value,
