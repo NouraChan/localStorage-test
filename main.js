@@ -6,20 +6,30 @@ var  productRate = document.getElementById('productRate');
 var quantity = document.getElementById('productQuantity');
 var productPrice = document.getElementById('productPrice');
 
+var Data = [];
+
+addBtn.addEventListener('click' , function(){
+    addProduct();
+})
+
+
 
 function addProduct(){
   
-  setData(Data);
+  
+  var jsonstr = setData(Data);
+  
   printDataInTable(Data);
-  addToLocalStorage(jsonString);
+  addToLocalStorage(jsonstr);
   //if (addToLocalStorage(Data)==true) {
     //Data = [];
-  //}else {alert("Error while adding Product.");
+//  }else {alert("Error while adding Product.");
 //}
 }
 
 
-var Data = [];
+
+
 // debugger;
 function setData(){
 
@@ -38,36 +48,21 @@ function setData(){
  
  var jsonString = JSON.stringify(Data);
 
-console.log(jsonString); 
-  return jsonString;
+//console.log(jsonString); 
+return jsonString;
 
 
 }
 
-function deleteItem(id){
-  var delBtn = document.getElementById('delBtn');
-
-delBtn.addEventListener('click' , function (){
-  localStorage.removeItem(id);
-})
-
-}
 
 
-
-addBtn.addEventListener('click' , function(){
-    addProduct();
-})
-
-
-
-function addToLocalStorage(Data){
+function addToLocalStorage(jsonstr){
 
 id = 0;
 for (var i = 0; i < Data.length; i++) {
-  localStorage.setItem(id, Data);
+  localStorage.setItem(id, jsonstr);
 
-instorage= JSON.parse(localStorage.getItem(id));  
+instorage= localStorage.getItem(id);  
 
 
 console.log(instorage);
@@ -75,12 +70,6 @@ console.log(instorage);
 id++
 
 }}
-
-
-
-
-
-
 
 
 
@@ -101,3 +90,15 @@ function printDataInTable(data) {
     }
     document.getElementById('table').innerHTML=row;
 }
+
+
+
+function deleteItem(id){
+  var delBtn = document.getElementById('delBtn');
+
+delBtn.addEventListener('click' , function (){
+  localStorage.removeItem(id);
+})
+
+}
+
